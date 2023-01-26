@@ -16,13 +16,15 @@ public class CustomProducerCallback {
         //指定序列化
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,StringSerializer.class.getName());
+        //关联自定义分区
+        properties.put(ProducerConfig.PARTITIONER_CLASS_CONFIG,"the.sum.kafka.producer.MyPartition");
 
         // 1 产生kafka生产者
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
 
         // 2 发送数据
         for (int i = 0; i < 10; i++) {
-            kafkaProducer.send(new ProducerRecord<>("first", "hello kafka"), new Callback() {
+            kafkaProducer.send(new ProducerRecord<>("first2", "kafka"), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if (e == null){
