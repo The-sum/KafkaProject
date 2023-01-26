@@ -25,6 +25,7 @@ public class CustomConsumer {
         // 2 订阅一个主题
         ArrayList<String> topic = new ArrayList<>();
         topic.add("first");
+        topic.add("first2");
         KafkaConsumer.subscribe(topic);
 
         // 3 接收消息

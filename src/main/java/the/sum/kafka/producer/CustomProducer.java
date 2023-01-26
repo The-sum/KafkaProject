@@ -24,7 +24,7 @@ public class CustomProducer {
 
         // 2 发送数据
         for (int i = 0; i < 10; i++) {
-            kafkaProducer.send(new ProducerRecord<>("first","hello kafka"));
+            kafkaProducer.send(new ProducerRecord<>("first2","hello kafka"));
         }
 
         kafkaProducer.close();

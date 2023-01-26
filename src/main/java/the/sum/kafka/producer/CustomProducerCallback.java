@@ -24,7 +24,7 @@ public class CustomProducerCallback {
 
         // 2 发送数据
         for (int i = 0; i < 10; i++) {
-            kafkaProducer.send(new ProducerRecord<>("first", "kafka"), new Callback() {
+            kafkaProducer.send(new ProducerRecord<>("first2",1,"","kafka"), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if (e == null){
