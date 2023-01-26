@@ -23,8 +23,8 @@ public class CustomProducerCallback {
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
 
         // 2 发送数据
-        for (int i = 0; i < 10; i++) {
-            kafkaProducer.send(new ProducerRecord<>("first2",1,"","kafka"), new Callback() {
+        for (int i = 0; i < 500; i++) {
+            kafkaProducer.send(new ProducerRecord<>("first",""+i,"atguigu"), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if (e == null){
